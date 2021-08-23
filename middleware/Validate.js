@@ -5,8 +5,8 @@ class TradeValidation {
         switch (method) {
             case "login":
                 return [
-                    body('email', 'Email anda tidak boleh kosong').notEmpty().isString(),
-                    body('password', 'Password anda tidak boleh kosong').notEmpty().isString(),
+                    body('email', 'Email anda tidak boleh kosong').notEmpty(),
+                    body('password', 'Password anda tidak boleh kosong').notEmpty(),
                 ];
             case "register":
                 return [

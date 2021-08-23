@@ -10,6 +10,13 @@ const { generateToken } = require("../helpers/jwttoken");
 
 class User {
 
+    static LogTes(req,res,next){
+        res.status(200).json({
+            message:"Successfull",
+            body:req.body
+        })
+    }
+
     static Register(req, res, next) {
         const { email, password, no_hp, username } = req.body;
         UserModel.findOne({ $or:[{email},{no_hp}] }).then(async (Users) => {

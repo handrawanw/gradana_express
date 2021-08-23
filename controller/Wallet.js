@@ -6,7 +6,10 @@ class Wallet {
 
     static WalletFindOne(req,res,next){
         const {id}=req.decoded;
-        WalletModel.findOne({user:id}).then((Data)=>{
+        WalletModel.findOne({user:id}).populate({
+            path:"user",
+            select:["username","email","no_hp"]
+        }).then((Data)=>{
             res.status(200).json({
                 message:"Successfull",
                 Data

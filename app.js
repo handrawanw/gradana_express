@@ -1,6 +1,7 @@
 const express=require("express");
 const app=express();
 
+const PORT=process.env.PORT||3000;
 const CORS=require("cors");
 
 require("dotenv").config();
@@ -16,7 +17,7 @@ app.use(
     errHandler
 );
 
-app.listen(3000,(err)=>{
+app.listen(PORT,(err)=>{
     if(err) throw err;
         console.log(`Server is running`);
 });
